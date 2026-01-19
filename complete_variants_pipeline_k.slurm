@@ -105,8 +105,6 @@ conda deactivate
 conda activate savana
 
 mkdir -p ${OUTDIR_SAVANA}
-mkdir -p ${OUTDIR_SAVANA}
-mkdir -p ${OUTDIR_SAVANA}
 
 #CNA#
 savana to --tumour ${OUTDIR_PHASING}${SAMPLE_NAME}_phased.bam \
@@ -128,11 +126,11 @@ conda activate bioinfo
 mkdir -p ${SUMMARY_FOLDER}
 
 awk '$2 != 0' ${OUTDIR_SAVANA}to/${SAMPLE_NAME}_merged_sorted.classified.somatic.vcf > ${SUMMARY_FOLDER}/${SAMPLE_NAME}_fixed.vcf
-bedtools intersect -wo -a ${SUMMARY_FOLDER}/${SAMPLE_NAME}_fixed.vcf -o ${INTERESTING_GENES} > ${SUMMARY_FOLDER}/SV_overlapping_genes.vcf
+bedtools intersect -wo -a ${SUMMARY_FOLDER}/${SAMPLE_NAME}_fixed.vcf -b ${INTERESTING_GENES} > ${SUMMARY_FOLDER}/SV_overlapping_genes.vcf
 rm ${SUMMARY_FOLDER}/${SAMPLE_NAME}_fixed.vcf
 
 tail -n +2 ${OUTDIR_SAVANA}CNA/${SAMPLE_NAME}_phased_segmented_absolute_copy_number.tsv > ${SUMMARY_FOLDER}/${SAMPLE_NAME}_copy_number_no_header.tsv
-bedtools intersect -wo -a ${SUMMARY_FOLDER}/${SAMPLE_NAME}_copy_number_no_header.tsv -o ${INTERESTING_GENES} > ${SUMMARY_FOLDER}/CNV_overlapping_genes.tsv
+bedtools intersect -wo -a ${SUMMARY_FOLDER}/${SAMPLE_NAME}_copy_number_no_header.tsv -b ${INTERESTING_GENES} > ${SUMMARY_FOLDER}/CNV_overlapping_genes.tsv
 rm ${SUMMARY_FOLDER}/${SAMPLE_NAME}_copy_number_no_header.tsv
 
 conda deactivate
@@ -146,3 +144,4 @@ python3 ${PATH_TO_PLOT_SCRIPT} \
  --sample_name ${SAMPLE_NAME}
 
 conda deactivate
+

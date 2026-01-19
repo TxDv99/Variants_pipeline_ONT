@@ -157,8 +157,8 @@ sns.barplot(data=snp_df_forplot, x="gene", y="counts", hue="effects", width=1, e
 plt.legend(fontsize=8)
 plt.tight_layout()
 plt.xlabel("Gene", fontsize=10)
-plt.ylabel("SNP count", fontsize=10)
-plt.title(args.sample_name + " snp count and effect", fontsize=14, fontstyle = 'italic')
+plt.ylabel("SNV count", fontsize=10)
+plt.title(args.sample_name + " snv count and effect", fontsize=14, fontstyle = 'italic')
 plt.xticks(rotation=60, fontsize = 9, fontweight = 'bold')
 plt.margins(x=0.02)
 plt.tick_params(
