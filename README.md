@@ -57,7 +57,7 @@ A non-trivial part was fitting the whole workflow inside the allowed **wall time
  As said, longphase-to was installed through (https://github.com/CCU-Bioinformatics-Lab/longphase-to?tab=readme-ov-file#installation) Docker the .sif image was obtained
  SAVANA (https://github.com/cortes-ciriano-lab/savana) 
  and ClairS-TO (https://github.com/HKU-BAL/ClairS-TO?tab=readme-ov-file#installation) were installed through conda (option 3 on ClairS's repo).
- Anyway, yaml's of the used environments are provided in this repo
+ Anyway, yaml files of the used environments are provided in this repo
 
 ---
 
